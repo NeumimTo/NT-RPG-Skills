@@ -24,7 +24,6 @@ var SkillBloodMagic =new (Java.extend(PassiveSkill, {
         s.setName("BloodMagic");
         s.setDescription("All skills will require life instead of mana");
         var SkillBloodMagicSettings = new SkillSettings();
-        SkillBloodMagicSettings.addNode();
         s.setSettings(SkillBloodMagicSettings);
     },
     applyEffect: function (character, extendedSkillInfo) {
@@ -80,7 +79,6 @@ var Heal = new (Java.extend(ActiveSkill, {
         return SkillResult.OK;
     }
 }));
-var
 registerSkill(Heal);
 registerSkill(SuperJump);
 registerSkill(SkillSpeed);
