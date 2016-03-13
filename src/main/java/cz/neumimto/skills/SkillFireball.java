@@ -12,6 +12,7 @@ import org.spongepowered.api.entity.EntityTypes;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.projectile.Snowball;
 import org.spongepowered.api.event.cause.Cause;
+import org.spongepowered.api.event.cause.NamedCause;
 import org.spongepowered.api.event.cause.entity.damage.DamageTypes;
 import org.spongepowered.api.world.World;
 
@@ -49,7 +50,7 @@ public class SkillFireball extends ActiveSkill {
             Snowball sb = (Snowball) optional.get();
             sb.offer(Keys.VELOCITY, direction.mul(settings.getLevelNodeValue(SkillNode.VELOCITY, info.getLevel())));
             sb.setShooter(p);
-            world.spawnEntity(sb, Cause.of(character.getPlayer()));
+            world.spawnEntity(sb, Cause.of(NamedCause.of("player",character.getPlayer())));
             sb.offer(Keys.FIRE_TICKS, 999);
             ProjectileProperties projectileProperties = new ProjectileProperties(sb, character);
             projectileProperties.setDamage(settings.getLevelNodeValue(SkillNode.DAMAGE, info.getLevel()));
